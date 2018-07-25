@@ -20,5 +20,4 @@ yarn-error.log*
 *.sln
 *.sw*
 
-latest_research.json
-trends.json
+/data
