@@ -7,14 +7,14 @@
         <a v-bind:href="item.url">{{ item.search }}</a>
     </li>
   </ul>
-  
+
 </div>
 </template>
 
 <script>
 export default {
   data(){
-    return{  
+    return{
       items: [
         {
             "search": "#lucassouto_1000",

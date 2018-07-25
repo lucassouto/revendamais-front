@@ -14,7 +14,7 @@
 <script>
 export default {
   data(){
-    return{  
+    return{
       trends: [
         {
             "name": "#ChainedToTheRhythm",
