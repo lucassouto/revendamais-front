@@ -1,9 +1,14 @@
 <template>
+<div>
+  <h3>Trends</h3>
+
   <ul>
     <li v-for="item in trends" v-bind:key="item">
         <a v-bind:href="item.url">{{ item.name }}</a>
     </li>
   </ul>
+
+</div>
 </template>
 
 <script>

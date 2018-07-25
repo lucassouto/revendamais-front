@@ -1,9 +1,14 @@
 <template>
+<div>
+  <h3>Latest Researchs</h3>
+
   <ul>
     <li v-for="item in items" v-bind:key="item">
         <a v-bind:href="item.url">{{ item.search }}</a>
     </li>
   </ul>
+  
+</div>
 </template>
 
 <script>
