@@ -7,11 +7,13 @@
       type="text"
       placeholder="Search"/>
 
+    <router-link to="/results">
     <b-button
       @click="fetchTwitter"
       size="sm"
       class="my-2 my-sm-0"
       >Search</b-button>
+    </router-link>
   </b-nav-form>
 </template>
 
@@ -25,15 +27,15 @@ export default {
       query: ''
     }
   },
-  methods:{
-  fetchTwitter(){
-    getSearch(encodeURIComponent(this.query))
-      .then(data => {
-        this.$store.dispatch('resultsSearch', data)
-        this.$store.dispatch('setTitleSearch', this.query)
-    })
+  methods: {
+    fetchTwitter () {
+      getSearch(encodeURIComponent(this.query))
+        .then(data => {
+          this.$store.dispatch('resultsSearch', data)
+          this.$store.dispatch('setTitleSearch', this.query)
+        })
+    }
   }
-}
 
 }
 </script>

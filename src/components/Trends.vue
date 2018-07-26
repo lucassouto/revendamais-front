@@ -12,20 +12,20 @@
 
 <script>
 export default {
-  data(){
-    return{
+  data () {
+    return {
       trends: [
         {
-            "name": "#ChainedToTheRhythm",
-            "url": "http://twitter.com/search?q=%23ChainedToTheRhythm"
+          'name': '#ChainedToTheRhythm',
+          'url': 'http://twitter.com/search?q=%23ChainedToTheRhythm'
         },
         {
-            "name": "#wednesdaywisdom",
-            "url": "https://twitter.com/search?q=%23wednesdaywisdom"
+          'name': '#wednesdaywisdom',
+          'url': 'https://twitter.com/search?q=%23wednesdaywisdom'
         },
         {
-            "name": "Tara Palmer-Tomkinson",
-            "url": "http://twitter.com/search?q=%22Tara+Palmer-Tomkinson%22"
+          'name': 'Tara Palmer-Tomkinson',
+          'url': 'http://twitter.com/search?q=%22Tara+Palmer-Tomkinson%22'
         }
       ]
     }
