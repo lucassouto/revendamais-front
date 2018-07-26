@@ -1,17 +1,17 @@
 <template>
-  <div id="home">
-    <latest-researchs></latest-researchs>
+  <div id="home" class="row">
+    <latest-researches></latest-researches>
     <trends></trends>
   </div>
 </template>
 
 <script>
-import LatestResearchs from '@/components/LatestResearchs.vue'
+import LatestResearches from '@/components/LatestResearches.vue'
 import Trends from '@/components/Trends.vue'
 
 export default {
   components: {
-    LatestResearchs, Trends
+    LatestResearches, Trends
   }
 }
 </script>

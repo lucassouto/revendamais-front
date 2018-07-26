@@ -1,13 +1,12 @@
 <template>
-<div>
-  <h3>Trends</h3>
+<div class="col-md-4">
+  <div id="trends">
+    <h3>Trends</h3>
 
-  <ul>
-    <li v-for="item in trends" v-bind:key="item">
-        <a v-bind:href="item.url">{{ item.name }}</a>
-    </li>
-  </ul>
-
+    <b-card v-for="trend in trends" v-bind:key="trend">
+      <a v-bind:href="trend.url">{{ trend.name }}</a>
+    </b-card>
+  </div>
 </div>
 </template>
 
@@ -33,3 +32,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+#trends {
+  background: #E5EBF0;
+  padding: 10px;
+  margin: 10px;
+}
+</style>

@@ -1,13 +1,12 @@
 <template>
-<div>
-  <h3>Latest Researchs</h3>
+<div class="col-md-8">
+  <div id="researchs">
+    <h3>Researches</h3>
 
-  <ul>
-    <li v-for="item in items" v-bind:key="item">
-        <a v-bind:href="item.url">{{ item.search }}</a>
-    </li>
-  </ul>
-
+    <b-card v-for="item in items" v-bind:key="item">
+      <a v-bind:href="item.url">{{ item.search }}</a>
+    </b-card>
+  </div>
 </div>
 </template>
 
@@ -33,3 +32,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+#researchs {
+  background: #E5EBF0;
+  padding: 10px;
+  margin: 10px;
+}
+</style>
+
