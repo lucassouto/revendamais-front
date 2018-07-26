@@ -7,7 +7,8 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    itemsSearch: ''
+    itemsSearch: '',
+    titleSearch: ''
   },
   mutations: mutations,
   actions: actions
