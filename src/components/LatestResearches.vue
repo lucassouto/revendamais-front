@@ -3,7 +3,7 @@
   <div id="researchs">
     <h3>Researches</h3>
 
-    <b-card v-for="item in items" v-bind:key="item">
+    <b-card v-for="item in list" v-bind:key="item.search">
       {{ item.search }}
     </b-card>
   </div>
@@ -11,12 +11,18 @@
 </template>
 
 <script>
+import _ from 'lodash'
 import { getLastResearchs } from '@/services/twitter'
 
 export default {
   data () {
     return {
       items: ''
+    }
+  },
+  computed: {
+    list () {
+      return _.orderBy(this.items, this.items, 'asc')
     }
   },
   created () {
