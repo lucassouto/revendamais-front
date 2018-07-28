@@ -1,12 +1,12 @@
 import Http from './http'
 
-export const getTrends = trends => {
-  return Http.get('/trends')
+export const getTrends = (woeid = '') => {
+  return Http.get(`/trends/${woeid}`)
     .then(response => response.data)
 }
 
-export const getLastResearchs = lastResearchs => {
-  return Http.get('/last-researchs')
+export const getLastResearchs = () => {
+  return Http.get('/latestsearches/')
     .then(response => response.data)
 }
 

@@ -4,31 +4,26 @@
     <h3>Researches</h3>
 
     <b-card v-for="item in items" v-bind:key="item">
-      <a v-bind:href="item.url">{{ item.search }}</a>
+      {{ item.search }}
     </b-card>
   </div>
 </div>
 </template>
 
 <script>
+import { getLastResearchs } from '@/services/twitter'
+
 export default {
   data () {
     return {
-      items: [
-        {
-          'search': '#lucassouto_1000',
-          'url': 'https://twitter.com/search?q=%23lucassouto_1000'
-        },
-        {
-          'search': '#vuejs',
-          'url': 'https://twitter.com/search?q=%23vuejs'
-        },
-        {
-          'search': '#python',
-          'url': 'https://twitter.com/search?q=%23python'
-        }
-      ]
+      items: ''
     }
+  },
+  created () {
+    getLastResearchs()
+      .then(data => {
+        this.items = data
+      })
   }
 }
 </script>
