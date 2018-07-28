@@ -1,7 +1,17 @@
 import Http from './http'
 
 export const getTrends = (woeid = '') => {
-  return Http.get(`/trends/${woeid}`)
+  if (woeid !== '') {
+    return Http.get(`/trends/${woeid}/`)
+      .then(response => response.data)
+  } else {
+    return Http.get(`/trends/`)
+      .then(response => response.data)
+  }
+}
+
+export const getLocationsTrends = () => {
+  return Http.get(`/locations/`)
     .then(response => response.data)
 }
 
@@ -11,6 +21,6 @@ export const getLastResearchs = () => {
 }
 
 export const getSearch = query => {
-  return Http.get(`/search/${query}`)
+  return Http.get(`/search/${query}/`)
     .then(response => response.data)
 }
