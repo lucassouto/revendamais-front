@@ -1,9 +1,8 @@
 <template>
-<div>
+<div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="20">
   <h3>{{ getTitleSearch }}</h3>
-
-  <b-list-group>
-      <b-list-group-item v-for="item in resultSearch.statuses" v-bind:key="item">
+  <b-list-group v-for="(x, index) in resultSearch" v-bind:key="index">
+      <b-list-group-item v-for="(item, index) in x.statuses" v-bind:key="index">
           {{ item.text }}
       </b-list-group-item>
   </b-list-group>
@@ -11,7 +10,14 @@
 </template>
 
 <script>
+import { getSearchNext } from '@/services/twitter'
+
 export default {
+  data () {
+    return {
+      busy: false
+    }
+  },
   computed: {
     getTitleSearch () {
       return this.$store.state.titleSearch
@@ -19,6 +25,22 @@ export default {
     resultSearch () {
       return this.$store.state.itemsSearch
     }
+  },
+  methods: {
+    loadMore: function () {
+      this.busy = true
+
+      setTimeout(() => {
+        getSearchNext(this.$store.getters.nextResults)
+          .then(data => {
+            this.$store.dispatch('scrollResults', data)
+          })
+        this.busy = false
+      }, 1000)
+    }
+  },
+  created () {
+    this.$store.dispatch('clearResults')
   }
 }
 </script>

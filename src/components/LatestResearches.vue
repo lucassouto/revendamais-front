@@ -1,7 +1,7 @@
 <template>
 <div class="col-md-8">
   <div id="researchs">
-    <h3>Researches</h3>
+    <h3>Últimas Pesquisas</h3>
 
     <b-card v-for="item in list" v-bind:key="item.search">
       {{ item.search }}

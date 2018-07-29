@@ -1,7 +1,7 @@
 <template>
   <b-nav-form>
     <b-form-input
-      v-model="query"
+      v-model="term"
       size="sm"
       class="mr-sm-2"
       type="text"
@@ -24,15 +24,15 @@ export default {
   name: 'Search',
   data () {
     return {
-      query: ''
+      term: ''
     }
   },
   methods: {
     fetchTwitter () {
-      getSearch(encodeURIComponent(this.query))
+      getSearch(encodeURIComponent(this.term))
         .then(data => {
           this.$store.dispatch('resultsSearch', data)
-          this.$store.dispatch('setTitleSearch', this.query)
+          this.$store.dispatch('setTitleSearch', this.term)
         })
     }
   }

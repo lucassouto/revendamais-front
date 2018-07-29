@@ -4,6 +4,12 @@ const actions = {
   },
   setTitleSearch (context, query) {
     context.commit('setTitleSearch', query)
+  },
+  scrollResults (context, results) {
+    context.commit('scrollResults', results)
+  },
+  clearResults (context) {
+    context.commit('clearResults')
   }
 }
 

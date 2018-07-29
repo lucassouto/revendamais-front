@@ -20,7 +20,12 @@ export const getLastResearchs = () => {
     .then(response => response.data)
 }
 
-export const getSearch = query => {
-  return Http.get(`/search/${query}/`)
+export const getSearch = term => {
+  return Http.get(`/search/${term}/`)
+    .then(response => response.data)
+}
+
+export const getSearchNext = query => {
+  return Http.get(`/search-raw-query/${query}/`)
     .then(response => response.data)
 }

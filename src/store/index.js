@@ -7,8 +7,17 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    itemsSearch: '',
+    itemsSearch: [],
     titleSearch: ''
+  },
+  getters: {
+    nextResults: state => {
+      if (state.itemsSearch[state.itemsSearch.length - 1].search_metadata === undefined) {
+        return ''
+      } else {
+        return state.itemsSearch[state.itemsSearch.length - 1].search_metadata.next_results.substring(1)
+      }
+    }
   },
   mutations: mutations,
   actions: actions

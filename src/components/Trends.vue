@@ -79,7 +79,7 @@ export default {
 }
 
 .card-body {
-  padding: 14px;
+  padding: 12px;
 }
 
 .search-wrapper{
