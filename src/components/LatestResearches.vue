@@ -3,7 +3,7 @@
   <div id="researchs">
     <h3>Últimas Pesquisas</h3>
 
-    <b-card v-for="item in list" v-bind:key="item.search">
+    <b-card v-for="item in list.slice(0,10)" v-bind:key="item.search">
       {{ item.search }}
     </b-card>
   </div>
@@ -22,7 +22,7 @@ export default {
   },
   computed: {
     list () {
-      return _.orderBy(this.items, this.items, 'asc')
+      return _.orderBy(this.items, ['modified'], 'desc')
     }
   },
   created () {
