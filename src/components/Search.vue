@@ -8,7 +8,7 @@
       placeholder="Search"/>
 
     <router-link to="/results">
-    <b-button
+    <b-button v-if="term!==''"
       @click="fetchTwitter"
       size="sm"
       class="my-2 my-sm-0"
