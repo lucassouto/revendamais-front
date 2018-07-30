@@ -3,7 +3,7 @@
   v-infinite-scroll="loadMore"
   infinite-scroll-disabled="busy"
   infinite-scroll-distance="20"
-  infinite-scroll-immediate-check="flase">
+  infinite-scroll-immediate-check=false>
 
   <h3>{{ getTitleSearch }}</h3>
   <b-list-group v-for="(x, index) in resultSearch" v-bind:key="index">
@@ -39,10 +39,11 @@ export default {
       this.busy = true
 
       setTimeout(() => {
+        if (this.nextResults !== '') {
         getSearchNext(this.nextResults)
           .then(data => {
             this.$store.dispatch('scrollResults', data)
-          })
+          })}
         this.busy = false
       }, 1000)
     }
