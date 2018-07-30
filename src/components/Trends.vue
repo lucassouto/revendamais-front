@@ -2,11 +2,12 @@
 <div class="col-md-4">
   <div id="trends">
     <h5>Assuntos do momento:</h5>
+    <h6>{{ currentLocation }}</h6>
     <b-button @click="getLocations" v-b-modal.change-location variant="primary" size="sm">Alterar</b-button>
 
     <div class="location-trends">
 
-      <b-modal @ok="changeLocation" id="change-location" size="sm" centered title="Locais: ">
+      <b-modal id="change-location" size="sm" centered title="Locais: ">
 
         <b-container fluid>
           <div class="search-wrapper">
@@ -15,7 +16,7 @@
 
          <b-row class="mb-1 text-center" v-for="location in filteredList.slice(0, 5)" v-bind:key="location.woeid">
             <b-col cols="12">
-              <b-button variant="primary" @click="getTrendsLocations(location.name)">{{ location.name }}</b-button>
+              <b-button variant="primary" @click="changeLocation(location.name)">{{ location.name }}</b-button>
             </b-col>
          </b-row>
        </b-container>
@@ -38,7 +39,7 @@ export default {
     return {
       trends: '',
       locations: [],
-      location: '',
+      currentLocation: 'Mundo',
       search: ''
     }
   },
@@ -56,12 +57,10 @@ export default {
           this.locations = data
         })
     },
-    getTrendsLocations (location) {
-      this.location = location
-    },
-    changeLocation () {
-      getTrends(this.location)
+    changeLocation (location) {
+      getTrends(location)
         .then(data => {
+          this.currentLocation = location
           this.trends = data
         })
     }
