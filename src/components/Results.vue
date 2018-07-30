@@ -40,10 +40,11 @@ export default {
 
       setTimeout(() => {
         if (this.nextResults !== '') {
-        getSearchNext(this.nextResults)
-          .then(data => {
-            this.$store.dispatch('scrollResults', data)
-          })}
+          getSearchNext(this.nextResults)
+            .then(data => {
+              this.$store.dispatch('scrollResults', data)
+            })
+        }
         this.busy = false
       }, 1000)
     }
