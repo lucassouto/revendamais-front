@@ -24,6 +24,9 @@ export default {
     },
     resultSearch () {
       return this.$store.state.itemsSearch
+    },
+    nextResults () {
+      return this.$store.getters.nextResults
     }
   },
   methods: {
@@ -31,16 +34,13 @@ export default {
       this.busy = true
 
       setTimeout(() => {
-        getSearchNext(this.$store.getters.nextResults)
+        getSearchNext(this.nextResults)
           .then(data => {
             this.$store.dispatch('scrollResults', data)
           })
         this.busy = false
       }, 1000)
     }
-  },
-  created () {
-    this.$store.dispatch('clearResults')
   }
 }
 </script>

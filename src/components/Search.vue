@@ -29,6 +29,8 @@ export default {
   },
   methods: {
     fetchTwitter () {
+      this.$store.dispatch('clearResults')
+
       getSearch(encodeURIComponent(this.term))
         .then(data => {
           this.$store.dispatch('resultsSearch', data)
