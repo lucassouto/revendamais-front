@@ -7,7 +7,7 @@
 
     <div class="location-trends">
 
-      <b-modal id="change-location" size="sm" centered title="Locais: ">
+      <b-modal id="change-location" ok-only="true" size="sm" centered title="Locais:">
 
         <b-container fluid>
           <div class="search-wrapper">
