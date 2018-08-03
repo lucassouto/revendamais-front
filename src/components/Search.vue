@@ -8,7 +8,7 @@
       placeholder="Search"/>
 
     <router-link to="/results">
-    <b-button v-if="term!==''"
+    <b-button v-if="term !== '' && term.length > 2"
       @click="fetchTwitter"
       size="sm"
       class="my-2 my-sm-0"
@@ -36,6 +36,11 @@ export default {
           this.$store.dispatch('resultsSearch', data)
           this.$store.dispatch('setTitleSearch', this.term)
         })
+    },
+    validatorSearch () {
+      if (this.term !== '' && this.term.length > 2) {
+        return true
+      }
     }
   }
 

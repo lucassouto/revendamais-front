@@ -1,0 +1,5 @@
+1) permitir busca apenas quando preencher 2 caracteres ==== FEITO
+
+2) highlight na palavra pesquisada em todos os tweets ==== FEITO
+
+3) a palavra teste -> sbrobous ==== FEITO

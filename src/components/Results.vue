@@ -9,7 +9,9 @@
   <b-list-group>
       <template v-for="result in resultSearch">
         <b-list-group-item v-for="item in result.statuses" v-bind:key="item.id_str">
-          {{ item.text }}
+          <div v-html="highlight(item.text)">{
+            {{ item.text  }}
+          </div>
         </b-list-group-item>
       </template>
   </b-list-group>
@@ -49,7 +51,17 @@ export default {
         }
         this.busy = false
       }, 1000)
+    },
+    highlight: function (words) {
+      return words.replace(this.getTitleSearch.toLowerCase(), '<span class=highlight>' + this.getTitleSearch + '</span>')
     }
   }
 }
 </script>
+
+<style>
+.highlight {
+  font-weight: bold;
+  color: blue;
+}
+</style>
