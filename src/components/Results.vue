@@ -6,10 +6,12 @@
   infinite-scroll-immediate-check=false>
 
   <h3>{{ getTitleSearch }}</h3>
-  <b-list-group v-for="(x, index) in resultSearch" v-bind:key="index">
-      <b-list-group-item v-for="(item, index) in x.statuses" v-bind:key="index">
+  <b-list-group>
+      <template v-for="result in resultSearch">
+        <b-list-group-item v-for="item in result.statuses" v-bind:key="item.id_str">
           {{ item.text }}
-      </b-list-group-item>
+        </b-list-group-item>
+      </template>
   </b-list-group>
 </div>
 </template>

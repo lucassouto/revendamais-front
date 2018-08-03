@@ -1,9 +1,11 @@
 <template>
 <div class="col-md-4">
   <div id="trends">
-    <h5>Assuntos do momento:</h5>
-    <h6>{{ currentLocation }}</h6>
-    <b-button @click="getLocations" v-b-modal.change-location variant="primary" size="sm">Alterar</b-button>
+    <div class="header-trends">
+      <h5>Assuntos do momento:</h5>
+      <h6>{{ currentLocation }}</h6>
+    </div>
+    <b-button class="header-trends btn-x" @click="getLocations" v-b-modal.change-location variant="primary" size="sm">Alterar</b-button>
 
     <div class="location-trends">
 
@@ -39,7 +41,7 @@ export default {
     return {
       trends: '',
       locations: [],
-      currentLocation: 'Mundo',
+      currentLocation: 'Worldwide',
       search: ''
     }
   },
@@ -87,5 +89,14 @@ export default {
 
 .search-wrapper{
   margin: 5px;
+}
+
+.header-trends {
+  display: inline-block;
+}
+
+.btn-x {
+  position: relative;
+  float: right;
 }
 </style>
